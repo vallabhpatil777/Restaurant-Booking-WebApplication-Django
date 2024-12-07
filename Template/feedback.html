@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% load  static %}
+{% block class %}
+class = "sub_page"
+{% endblock %}
+{% block active4 %}active{% endblock %}
+{% block main %}
+
+
+
+<section class="book_section layout_padding">
+    <div class="container">
+      {% if message %}
+      <div class="alert alert-success" role="alert">
+        {{ message }}
+      </div>
+      {% endif %}
+      <div class="heading_container">
+        <h2>
+          Please Provide Your Feedback
+        </h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form_container">
+            <form action="{%  url 'feedback' %}" method ='POST', enctype = "multipart/form-data">
+              {% csrf_token %}
+              <div>
+                <input type="text" class="form-control" name = "name" placeholder="Your Name" />
+              </div>
+              <div >
+                <textarea class="form-control" name = "description" placeholder="Your feedback"  required rows="5" ></textarea>
+              </div>
+              <div>
+                <select class="form-control nice-select wide" name = "rating">
+                  <option value="" disabled selected>
+                    Please Provide Your Rating 
+                  </option>
+                  <option value="1">
+                    1
+                  </option>
+                  <option value="2">
+                    2
+                  </option>
+                  <option value="3">
+                    3
+                  </option>
+                  <option value="4">
+                    4
+                  </option>
+                  <option value="5">
+                    5
+                  </option>
+                  <option value="6">
+                    6
+                  </option>
+                  <option value="7">
+                    7
+                  </option>
+                  <option value="8">
+                    8
+                  </option>
+                  <option value="9">
+                    9
+                  </option>
+                  <option value="10">
+                    10
+                  </option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="formFileSm" class="form-label">Please Provide Your Image</label>
+                <input class="form-control form-control-sm" id="formFileSm" name ="image" type="file">
+              </div>
+              <div class="btn_box">
+                <button>
+                  Submit Feedback
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}
