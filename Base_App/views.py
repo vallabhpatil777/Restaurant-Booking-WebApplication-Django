@@ -25,7 +25,7 @@ def BookTableView(request):
         phone_no = request.POST.get('phone_no')
         email = request.POST.get('user_email')
         total_people = request.POST.get('total_people')
-        booking_date = request.FILES.get('booking_date')
+        booking_date = request.POST.get('booking_date')
 
         if name != '' and total_people != 0 and booking_date !='' and email !='':
             data = BookTable(Name = name, Phone_number= phone_no, Email = email, Total_people = total_people, Booking_Date = booking_date)
